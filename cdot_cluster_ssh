@@ -1,0 +1,45 @@
+import sys  
+
+vserver_all = {'nasv0008':'nascf001',
+'nasv0010':'nascf001',
+'nasv0009':'nascf001',
+'nasv0011':'nascf001',
+'nasv0012':'nascf001',
+'nasv0014':'nascf001',
+'nasv0015':'nascf001',
+'nasv0056':'nascf001',
+'nasv0013':'nascf001',
+'nas05003pn':'nascf001',
+'nasv0057':'nascf001',
+'nas05002pn':'nascf001',
+'nasv0058':'nascf001',
+'nasv0060':'nascf001',
+'nasv0061':'nascf001',
+'nasv0062':'nascf001',
+'nasv0064':'nascf001',
+'nasv0063':'nascf001',
+'nasv0034':'nascf003',
+'nasv0038':'nascf003',
+'nasv0032':'nascf003',
+'nasv0048':'nascf003'}
+
+
+def cluster_lookup(vserver):
+  flag = 0 
+  for svm, cls in vserver_all.items():
+    if svm == vserver:
+      flag =1 
+      break
+  
+  if flag == 1:
+    return(cls)
+  else:
+    return 0 
+  
+x = sys.argv[0]
+  
+cluster = cluster_lookup(x)  
+if cluster == 0:
+  print 'cluster not found'
+else:
+  print cluster 
